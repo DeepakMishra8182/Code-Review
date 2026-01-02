@@ -1,42 +1,201 @@
+/* * {
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+
+html,
+body,
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+main .left,
+main .right {
+  height: 100%;
+  flex-basis: 50%;
+  border-radius: 0.7rem;
+}
+
+main .left {
+  background-color: #000000;
+  position: relative;
+}
+
+.left .code,
+.code pre,
+.code pre code {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  border-radius: 0.7rem;
+  background-color: #0c0c0c;
+}
+
+main .left .review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: rgb(219, 219, 255);
+  color: #000000;
+  padding: 0.5rem 2rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0.7rem;
+}
+
+
+main .right {
+  background-color: #343434;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  overflow: auto;
+} */
+
+
+
+
+
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: #0f172a; /* dark blue */
+  color: #e5e7eb;
+  height: 100vh;
+}
+
+/* Main Layout */
+main {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Left Section */
+.left {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #020617;
+  padding: 16px;
+  gap: 12px;
+  border-right: 1px solid #1e293b;
+  overflow: hidden;
+}
+
+/* Code Editor Container */
+.code {
+  flex: 1;
+  /* background: #020617; */
+  border-radius: 8px;
+  overflow: auto;
+  min-height: 0;
+}
+
+/* Review Button */
+.review {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #022c22;
   text-align: center;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.review:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Right Section */
+.right {
+  width: 50%;
+  padding: 20px;
+  overflow-y: auto;
+  background: #020617;
+}
+
+/* Markdown Styling */
+.right h1,
+.right h2,
+.right h3 {
+  color: #38bdf8;
+  margin-bottom: 10px;
+}
+
+.right p {
+  line-height: 1.6;
+  margin-bottom: 12px;
+  color: #e5e7eb;
+}
+
+/* Code blocks in markdown */
+.right pre {
+  background: #020617 !important;
+  border: 1px solid #1e293b;
+  padding: 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.right code {
+  color: #facc15;
+  font-family: "Fira Code", monospace;
+  font-size: 14px;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Responsive (Mobile) */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .left,
+  .right {
+    width: 100%;
+    height: 50vh;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
